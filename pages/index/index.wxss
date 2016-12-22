@@ -19,3 +19,8 @@
 .usermotto {
   margin-top: 200px;
 }
+.user-motto{
+  display: block;
+  width: 100%;
+  text-align: center;
+}

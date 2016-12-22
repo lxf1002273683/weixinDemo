@@ -1,12 +1,12 @@
-.flex-wrp{
-    display: flex;
-    justify-content: space-between;
-}
 .flex-item{
     width: 251rpx;
     text-align: center;
     height: 100px;
     line-height: 100px;
+    float: left;
+    width: 33.33333%;
+    box-sizing: border-box;
+    border: 1px solid black;
 }
 .bc_green{
     background-color: green;

@@ -6,3 +6,191 @@
     <view class="{{mmmm ==1 ? 'first' : ''}}" data-index='1' bindtap="switchover">热门<view class="bottom {{nnnn ==1 ? 'firstview' : ''}}"></view></view>
     <view class="{{mmmm ==2 ? 'first' : ''}}" data-index='2' bindtap="switchover">收藏<view class="bottom {{nnnn ==2 ? 'firstview' : ''}}"></view></view>
 </view>
+<!-- 可用组件：https://mp.weixin.qq.com/debug/wxadoc/dev/component/ -->
+<view class="footer">
+	<view class="footer__nav">
+		<view>
+			<navigator>
+				<image src="../../images/icon64_appwx_logo.png"/>
+				<text>首页</text>
+			</navigator>
+		</view>
+		<view>
+			<image src="../../images/icon64_appwx_logo.png"/>
+			<text>私信</text>
+		</view>
+		<view>
+			<image src="../../images/icon64_appwx_logo.png"/>
+			<text>打赏</text>
+		</view>
+		<view>
+			<image src="../../images/icon64_appwx_logo.png"/>
+			<text>我的</text>
+		</view>
+	</view>
+	<view class="comment__btn">
+		<text>写评论</text>
+	</view>
+</view>
+<scroll-view scroll-y="true">
+  <view class="seller__names">
+  	<view>
+  		<image class="seller__names__image" src="../../images/icon64_appwx_logo.png" />
+	  	<view class="seller__name">
+	  		<text>jhh</text>
+	  	</view>
+  	</view>
+  	<button class="seller__names__btn" plain="true">关注</button>
+  </view>
+  <view class="frontcover">
+  	<image class="image" src="../../images/92722a9f693d36f0654dda97b001d146.jpg" mode="center"></image>
+  	<view class="tag">
+  		<text>#工具玩具</text>
+  		<text>#工具玩具</text>
+  	</view>
+  	<view class="title">
+  		<text>作为一个混蛋，当然需要个康斯坦丁地毯</text>
+  	</view>
+  	<view class="attr">
+  		<view>
+  			<icon></icon>
+  			<text>935</text>
+  		</view>
+  		<view>
+  			<icon></icon>
+  			<text>6小时前</text>
+  		</view>
+  	</view>
+  </view>
+  <view class="content_bd">
+  	<text>昆汀把那些在这个世界微不足道的人物的故事写成另一个世界的精彩。他似乎创造了另一个空间，另一个现实，不是什么超自然，而是某个有着自己特性的社会。那个社会	似乎充满了血腥暴力，却又同时充满了单纯直截义气情感。我们谁都无法活在他电影的世界里，但他电影世界中的人物却可能真实地活在我们的世界中。
+  		\n售卖昆汀的电影合集是来自于美国，收录了蓝光版本的八部经典影片。一次看个够，也许你看过杀死比尔、无耻混蛋但你看过危险关系和金刚不坏吗？配合了经典人物封面，比起观看这个更适合收藏。
+  		\n昆汀经典蓝光合集
+  		\n规格：一套十张
+  		\n影片：
+  		\n1.落水狗
+  		\n2.低俗小说
+  		\n3.杀死比尔1
+  		\n4.杀死比尔2
+  		\n5.危险关系
+  		\n6.真实罗曼史
+  		\n7.无耻混蛋
+  		\n8.金刚不坏
+  		\n产地：美国
+  		\n版本：全蓝光
+  		\n点击我的头像关注我，还有更多狠货
+  	</text>
+  </view>
+  <view class="iamges">
+  	<image src="http://img8.ontheroadstore.com/upload/161116/5c20ac92290b28318ebf999be912175d.jpg"/>
+  	<image src="http://img8.ontheroadstore.com/upload/161116/5c20ac92290b28318ebf999be912175d.jpg"/>
+  	<image src="http://img8.ontheroadstore.com/upload/161116/5c20ac92290b28318ebf999be912175d.jpg"/>
+  	<image src="http://img8.ontheroadstore.com/upload/161116/5c20ac92290b28318ebf999be912175d.jpg"/>
+  	<image src="http://img8.ontheroadstore.com/upload/161116/5c20ac92290b28318ebf999be912175d.jpg"/>
+  	<image src="http://img8.ontheroadstore.com/upload/161116/5c20ac92290b28318ebf999be912175d.jpg"/>
+  	<image src="http://img8.ontheroadstore.com/upload/161116/5c20ac92290b28318ebf999be912175d.jpg"/>
+  	<image src="http://img8.ontheroadstore.com/upload/161116/5c20ac92290b28318ebf999be912175d.jpg"/>
+  	<image src="http://img8.ontheroadstore.com/upload/161116/5c20ac92290b28318ebf999be912175d.jpg"/>
+  </view>
+  <view class="buy">
+  	<view class="info">
+  		<text class="price">￥ 539</text>
+  		<text class="express">快递：￥ 13</text>
+  		<text class="repertory">库存：0</text>
+  	</view>
+  		<button class="buy__btn" plain="true" hover-class="none">卖光了</button>
+  </view>
+  <view class="praise">
+  	<view class="like_num">
+  		<view><text>26</text>个人觉得牛逼</view>
+  	</view>
+  	<view class="head__portrait">
+		<image src="../../images/icon64_appwx_logo.png"/>
+		<image src="../../images/icon64_appwx_logo.png"/>
+		<image src="../../images/icon64_appwx_logo.png"/>
+		<image src="../../images/icon64_appwx_logo.png"/>
+		<image src="../../images/icon64_appwx_logo.png"/>
+		<image src="../../images/icon64_appwx_logo.png"/>
+		<image src="../../images/icon64_appwx_logo.png"/>
+		<image src="../../images/icon64_appwx_logo.png"/>
+		<image src="../../images/icon64_appwx_logo.png"/>
+		<image src="../../images/icon64_appwx_logo.png"/>
+		<image src="../../images/icon64_appwx_logo.png"/>
+		<image src="../../images/icon64_appwx_logo.png"/>
+		<image src="../../images/icon64_appwx_logo.png"/>
+		<image src="../../images/icon64_appwx_logo.png"/>
+		<image src="../../images/icon64_appwx_logo.png"/>
+		<image src="../../images/icon64_appwx_logo.png"/>
+  	</view>
+  </view>
+  <view class="comment">
+  	<view class="comment__num">评论(<text>10</text>)</view>
+  	<view class="comment_bd">
+  		<!-- 第一层回复 -->
+  		<view class="father">
+  			<navigator>
+  				<image class="comment__user__image" src="../../images/icon64_appwx_logo.png" />
+  			</navigator>
+  			<view class="comment__text">
+  				<view class="username">
+  					<text>宋柏乐</text>
+  					<text>11月16日 12:34</text>
+  				</view>
+  				<view class="content__text">
+  					<text class="text__0">有中文字母吗爱的是范德萨发生的方式发生大法师asda。爱的撒旦撒旦撒旦</text>
+  					<!-- 子回复 加for -->
+  					<view class="reply">
+  						<view class="son">
+  							<view class="reply__content">
+  								<text>贝塔</text>
+  								<text class="reply_user">回复@宋柏乐</text>
+  								<text>正版的应该没中文字幕 这玩意买回去都收藏 谁拿来看啊</text>
+  							</view>
+  							<view class="date">
+  								<text>11月16日 12:38</text>
+  							</view>
+  						</view>
+  					</view>
+  				</view>
+  			</view>
+  		</view>
+  		<view class="father">
+  			<navigator>
+  				<image class="comment__user__image" src="../../images/icon64_appwx_logo.png" />
+  			</navigator>
+  			<view class="comment__text">
+  				<view class="username">
+  					<text>宋柏乐</text>
+  					<text>11月16日 12:34</text>
+  				</view>
+  				<view class="content__text">
+  					<text class="text__0">有中文字母吗爱的是范德萨发生的方式发生大法师asda。爱的撒旦撒旦撒旦</text>
+  					<view class="reply">
+  						<!-- 子回复 加for -->
+  						<view class="son">
+  							<view class="reply__content">
+  								<text>贝塔</text>
+  								<text class="reply_user">回复@宋柏乐</text>
+  								<text>正版的应该没中文字幕 这玩意买回去都收藏 谁拿来看啊</text>
+  							</view>
+  							<view class="date">
+  								<text>11月16日 12:38</text>
+  							</view>
+  						</view>
+  						<view class="son">
+  							<view class="reply__content">
+  								<text>贝塔</text>
+  								<text class="reply_user">回复@宋柏乐</text>
+  								<text>正版的应该没中文字幕 这玩意买回去都收藏 谁拿来看啊</text>
+  							</view>
+  							<view class="date">
+  								<text>11月16日 12:38</text>
+  							</view>
+  						</view>
+  					</view>
+  				</view>
+  			</view>
+  		</view>	
+  	</view>
+  </view>
+</scroll-view>

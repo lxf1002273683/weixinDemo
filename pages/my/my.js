@@ -1,3 +1,20 @@
+var api=require('../../utils/api.js')
+const date = new Date()
+const years = []
+const months = []
+const days = []
+
+for (let i = 1990; i <= date.getFullYear(); i++) {
+  years.push(i)
+}
+
+for (let i = 1 ; i <= 12; i++) {
+  months.push(i)
+}
+
+for (let i = 1 ; i <= 31; i++) {
+  days.push(i)
+}
 Page({
   data: {
     // text:"这是一个页面"
@@ -15,11 +32,59 @@ Page({
     language: '',
     version: '',
     //数据缓存 保存数据变量
-    texta: ''
+    texta: '',
+    hhhh: 1,
+    years: years,
+    year: date.getFullYear(),
+    months: months,
+    month: 2,
+    days: days,
+    day: 2,
+    year: date.getFullYear(),
+    value: [9999, 1, 1],
+  },
+  bindChange: function(e) {
+    const val = e.detail.value
+    this.setData({
+      year: this.data.years[val[0]],
+      month: this.data.months[val[1]],
+      day: this.data.days[val[2]]
+    })
   },
   onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '当前页面'
+    })
+  },
+  onReady: function () {
+    this.mapCtx = wx.createMapContext('myMap')
+  },
+  onPullDownRefresh: function(){
+    console.log("sad")
+  },
+  handleLoadMore () {
+    console.log('下拉加载')
+    if (!this.data.itemlist_recommend_hasMore) return
+    this.setData({ loading: true })
+    return app.api.getItemList({
+      item_style: this.data.itemlist_recommend_item_style,
+      item_type: this.data.itemlist_recommend_item_type,
+      cur_page: this.data.itemlist_recommend_cur_page++,
+      page_size: this.data.itemlist_recommend_page_size
+    }).then(res => {
+      if (this.data.itemlist_recommend_cur_page >= res.data.total_pages) {
+        this.setData({
+          itemlist_recommend_hasMore: false,
+          loading: false
+        })
+        return
+      }
+      this.setData({
+        itemlist_recommend_list: this.data.itemlist_recommend_list.concat(res.data.items),
+        loading: false
+      })
+    }).catch(e => {
+      console.log('sdfsdfsdfsdf:', e)
     })
   },
   bindViewTap: function () {
@@ -28,38 +93,12 @@ Page({
     })
   },
   downloadFile: function () {
-    // wx.downloadFile({
-    //   url: 'http://m2.quanjing.com/2m/alamyrf005/b1fw89.jpg', //仅为示例，并非真实的资源
-    //   success: function(res) {
-    //     console.log(res)
-    //     wx.saveFile({
-    //       tempFilePath: res.tempFilePath,
-    //       success: function(res) {
-    //         console.log(res)
-    //       }
-    //     })
-    //   }
-    // })
+
   },
+  //上传图片
   listenerButtonupolFile: function () {
     var that = this;
-    wx.chooseImage({
-      count: 4, // 默认9
-      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function (res) {
-        console.log(res)
-        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
-        var tempFilePaths = res.tempFilePaths;
-        that.setData({
-          array: tempFilePaths,
-          hide: true,
-        })
-        // wx.previewImage({
-        //     urls: tempFilePaths // 需要预览的图片http链接列表
-        // })
-      }
-    })
+    api.uploadFile(that)
   },
   previewImage: function () {
     wx.previewImage({
@@ -67,33 +106,7 @@ Page({
     })
   },
   previewmap: function () {
-    //  wx.getLocation({
-    //   type: 'wgs84',
-    //   success: function(res) {
-    //     var latitude = res.latitude
-    //     var longitude = res.longitude
-    //     var speed = res.speed
-    //     var accuracy = res.accuracy
-    //     that.setData({
-    //       latitude:latitude,
-    //       longitude:longitude,
-    //       speed:speed,
-    //       accuracy:accuracy
-    //     })
-    //   }
-    // })
-    wx.getLocation({
-      type: 'gcj02', //返回可以用于wx.openLocation的经纬度
-      success: function (res) {
-        var latitude = res.latitude
-        var longitude = res.longitude
-        wx.openLocation({
-          latitude: latitude,
-          longitude: longitude,
-          scale: 28
-        })
-      }
-    })
+    api.getLocation();
   },
   getNetworkType: function () {
     var that = this;
@@ -121,10 +134,13 @@ Page({
       }
     })
   },
+  hh: function () {
+    this.data.hhhh = 10;
+    console.log(this.data.hhhh)
+  },
+  //拨打电话
   makePhoneCall: function () {
-    wx.makePhoneCall({
-      phoneNumber: '10086' //仅为示例，并非真实的电话号码
-    })
+    api.makePhoneCall("10086")
   },
   setStoragebindinput: function (e) {
     this.setData({
@@ -145,14 +161,43 @@ Page({
           console.log(res.data)
         }
       })
-    },1000)
+    }, 1000)
   },
-  onReachBottom: function() {
-    wx.showToast({
-  title: '成功',
-  icon: 'success',
-  duration: 2000
-})
-    // Do something when page reach bottom.
+  tiaozhuan: function () {
+      wx.switchTab({
+        url: '/pages/index/index'
+      })
+  },
+  scanCode: function (){
+    wx.scanCode({
+      success: function(res){
+        console.log(res)
+      }
+    })
+  },
+  getCenterLocation: function () {
+    this.mapCtx.getCenterLocation({
+      success: function(res){
+        console.log(res.longitude)
+        console.log(res.latitude)
+      }
+    })
+  },
+  moveToLocation: function () {
+    this.mapCtx.moveToLocation()
+  },
+  onShareAppMessage: function () {
+    return {
+      title: '消息',
+      desc: '分享描述',
+    }
   }
+  // onReachBottom: function () {
+  //   wx.showToast({
+  //     title: '成功',
+  //     icon: 'success',
+  //     duration: 2000
+  //   })
+  //   // Do something when page reach bottom.
+  // }
 })
